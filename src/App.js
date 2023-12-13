@@ -1,11 +1,17 @@
-import './App.css';
-import ProductsList from './components/products/ProductsList';
+import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import Header from './components/Header';
+import Routes from './components/AppRoutes';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
     return (
-        <div className="App">
-            <ProductsList />
-        </div>
+        <Router>
+            <Header />
+            <div className="container mt-4">
+                <Routes />
+            </div>
+        </Router>
     );
 }
 
