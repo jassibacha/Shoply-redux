@@ -14,7 +14,7 @@ function ProductsList() {
     }
 
     return (
-        <div className="ProductsList">
+        <div className="ProductsList row">
             {/*
              * Uses Object.keys(products) to extract an array of product IDs from the products object.
              * This is necessary because the products are stored as an object, and we need an array
