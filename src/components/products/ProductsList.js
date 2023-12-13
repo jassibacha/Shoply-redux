@@ -23,8 +23,11 @@ function ProductsList() {
              * Maps over the array of product IDs. For each product ID, the corresponding product details
              * are accessed from the products object. */}
             {Object.keys(products).map((productId) => {
-                const product = products[productId];
-                return <Product key={productId} product={product} />;
+                const productWithId = {
+                    ...products[productId],
+                    id: productId,
+                };
+                return <Product key={productId} product={productWithId} />;
             })}
         </div>
     );
