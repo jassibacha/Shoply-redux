@@ -26,21 +26,15 @@ function cartReducer(state = initialCartState, action) {
                 },
             };
         case REMOVE_FROM_CART:
-            console.log('REMOVE_FROM_CART FIRING');
+            //console.log('REMOVE_FROM_CART FIRING');
             const { productIdToRemove } = action.payload;
-            console.log('productIdToRemove: ', productIdToRemove);
 
             // Check if the product is in the cart
             if (state[productIdToRemove]) {
-                console.log(
-                    'state[productIdToRemove]: ',
-                    state[productIdToRemove]
-                );
                 // Decrement the quantity
                 const updatedQuantity = state[productIdToRemove].quantity - 1;
 
                 if (updatedQuantity > 0) {
-                    console.log('updatedQuantity > 0: ', updatedQuantity);
                     return {
                         ...state,
                         [productIdToRemove]: {
@@ -49,7 +43,6 @@ function cartReducer(state = initialCartState, action) {
                         },
                     };
                 } else {
-                    console.log('updatedQuantity <= 0: ', updatedQuantity);
                     // If the quantity reaches 0, remove the product from the cart
                     const { [productIdToRemove]: _, ...remainingItems } = state;
                     return remainingItems;
