@@ -1,8 +1,6 @@
 import productsData from '../data.json'; 
 
-const initialProductsState = {
-    products: productsData.products // Imported from data.json
-};
+const initialProductsState = productsData.products;
 
 function productsReducer(state = initialProductsState, action) {
     switch (action.type) {
