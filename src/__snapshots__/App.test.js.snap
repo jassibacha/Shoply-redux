@@ -1,0 +1,136 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App Component matches the snapshot 1`] = `
+<DocumentFragment>
+  <nav
+    class="navbar navbar-expand navbar-light bg-light px-3"
+  >
+    <a
+      class="navbar-brand"
+      href="/"
+    >
+      Shoply
+    </a>
+    <div
+      class="d-flex justify-content-center w-100"
+    >
+      <ul
+        class="navbar-nav"
+      >
+        <li
+          class="nav-item"
+        >
+          <a
+            class="nav-link"
+            href="/"
+          >
+            Shop
+          </a>
+        </li>
+      </ul>
+    </div>
+    <ul
+      class="navbar-nav ms-auto"
+    >
+      <li
+        class="nav-item"
+      >
+        <button
+          class="btn nav-link d-flex align-items-center"
+        >
+          <svg
+            aria-hidden="true"
+            class="svg-inline--fa fa-cart-shopping fa-lg "
+            data-icon="cart-shopping"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
+            viewBox="0 0 576 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"
+              fill="currentColor"
+            />
+          </svg>
+          <span
+            class="badge bg-secondary ms-1"
+          >
+            1
+          </span>
+        </button>
+      </li>
+    </ul>
+  </nav>
+  <div
+    class="container mt-4"
+  >
+    <div
+      class="ProductsList row"
+    >
+      <div
+        class="col-sm-6 col-lg-4"
+      >
+        <div
+          class="card product my-3 w-100"
+          style="width: 18rem;"
+        >
+          <img
+            alt="tv"
+            class="card-img-top"
+            src="https://images.samsung.com/is/image/samsung/latin_en-hd-j4300ah-un32j4300ahxpa-001-front-indigo-blue"
+            style="max-height: 200px; object-fit: contain;"
+          />
+          <div
+            class="card-body"
+          >
+            <h5
+              class="card-title"
+            >
+              tv
+            </h5>
+            <p
+              class="card-text"
+            >
+              A beautiful, big-screen TV. Because hey, Netflix isn't going to watch itself.
+            </p>
+            <p
+              class="card-text"
+            >
+              <strong>
+                Price:
+              </strong>
+               $219.99
+            </p>
+            <button
+              class="btn btn-primary"
+            >
+              <svg
+                aria-hidden="true"
+                class="svg-inline--fa fa-cart-plus "
+                data-icon="cart-plus"
+                data-prefix="fas"
+                focusable="false"
+                role="img"
+                viewBox="0 0 576 512"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96zM252 160c0 11 9 20 20 20h44v44c0 11 9 20 20 20s20-9 20-20V180h44c11 0 20-9 20-20s-9-20-20-20H356V96c0-11-9-20-20-20s-20 9-20 20v44H272c-11 0-20 9-20 20z"
+                  fill="currentColor"
+                />
+              </svg>
+               Add to Cart
+            </button>
+            <button
+              class="btn btn-danger"
+            >
+              Remove
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

@@ -7,7 +7,7 @@ const initialCartState = {
 
 function cartReducer(state = initialCartState, action) {
     switch (action.type) {
-        case ADD_TO_CART:
+        case ADD_TO_CART: {
             const { productId, productDetails, quantity } = action.payload;
 
             // Initialize a variable for the new item quantity
@@ -31,14 +31,14 @@ function cartReducer(state = initialCartState, action) {
                 },
                 totalQuantity: state.totalQuantity + quantity,
             };
-        case REMOVE_FROM_CART:
+        }
+        case REMOVE_FROM_CART: {
             //console.log('REMOVE_FROM_CART FIRING');
-            const { productIdToRemove } = action.payload;
+            const { productId } = action.payload;
 
             // Check if the product exists in the cart
-            if (state.items[productIdToRemove]) {
-                const updatedQuantity =
-                    state.items[productIdToRemove].quantity - 1;
+            if (state.items[productId]) {
+                const updatedQuantity = state.items[productId].quantity - 1;
 
                 // Check if the updated quantity is greater than zero
                 if (updatedQuantity > 0) {
@@ -47,8 +47,8 @@ function cartReducer(state = initialCartState, action) {
                         ...state,
                         items: {
                             ...state.items,
-                            [productIdToRemove]: {
-                                ...state.items[productIdToRemove],
+                            [productId]: {
+                                ...state.items[productId],
                                 quantity: updatedQuantity,
                             },
                         },
@@ -56,8 +56,7 @@ function cartReducer(state = initialCartState, action) {
                     };
                 } else {
                     // If quantity falls to zero, remove the product from the cart
-                    const { [productIdToRemove]: _, ...remainingItems } =
-                        state.items;
+                    const { [productId]: _, ...remainingItems } = state.items;
                     return {
                         ...state,
                         items: remainingItems,
@@ -68,7 +67,7 @@ function cartReducer(state = initialCartState, action) {
 
             // If product is not in the cart, just return the current state
             return state;
-
+        }
         default:
             return state;
     }
