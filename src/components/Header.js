@@ -1,44 +1,37 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; // If you're using Font Awesome for icons
-import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'; // For the shopping cart icon
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
 const Header = () => {
     return (
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <nav className="navbar navbar-expand navbar-light bg-light px-3">
             <Link className="navbar-brand" to="/">
+                
+            
                 Shoply
             </Link>
 
-            <button
-                className="navbar-toggler"
-                type="button"
-                data-toggle="collapse"
-                data-target="#navbarNav"
-                aria-controls="navbarNav"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
-            >
-                <span className="navbar-toggler-icon"></span>
-            </button>
-
-            <div className="collapse navbar-collapse" id="navbarNav">
-                <ul className="navbar-nav mr-auto">
+            <div className="d-flex justify-content-center w-100">
+                <ul className="navbar-nav">
+                            
+                        
                     <li className="nav-item">
                         <Link className="nav-link" to="/">
-                            All Products
-                        </Link>
-                    </li>
-                </ul>
-
-                <ul className="navbar-nav">
-                    <li className="nav-item">
-                        <Link className="nav-link" to="/cart">
-                            <FontAwesomeIcon icon={faShoppingCart} /> Cart
+                            Shop
                         </Link>
                     </li>
                 </ul>
             </div>
+
+            <ul className="navbar-nav ms-auto">
+                <li className="nav-item">
+                    <button className="btn nav-link d-flex align-items-center">
+                        <FontAwesomeIcon icon={faShoppingCart} size="lg" />
+                        <span className="badge bg-secondary ms-1">3</span>
+                    </button>
+                </li>
+            </ul>
         </nav>
     );
 };
