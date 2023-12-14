@@ -1,54 +1,73 @@
 import { ADD_TO_CART, REMOVE_FROM_CART } from '../actions/actionTypes';
 
-const initialCartState = {};
+const initialCartState = {
+    items: {},
+    totalQuantity: 0,
+};
 
 function cartReducer(state = initialCartState, action) {
     switch (action.type) {
         case ADD_TO_CART:
             const { productId, productDetails, quantity } = action.payload;
+
+            // Initialize a variable for the new item quantity
+            let newItemQuantity;
+
             // Check if the product is already in the cart
-            if (state[productId]) {
-                // If so, increment the quantity
-                return {
-                    ...state,
-                    [productId]: {
-                        ...state[productId],
-                        quantity: state[productId].quantity + quantity,
-                    },
-                };
+            if (state.items[productId]) {
+                // If it exists, increment the existing quantity
+                newItemQuantity = state.items[productId].quantity + quantity;
+            } else {
+                // If it's new, use the provided quantity
+                newItemQuantity = quantity;
             }
-            // If the product is not in the cart, add it with the initial quantity
+
+            // Return the updated state
             return {
                 ...state,
-                [productId]: {
-                    productDetails: productDetails,
-                    quantity: quantity,
+                items: {
+                    ...state.items,
+                    [productId]: { productDetails, quantity: newItemQuantity },
                 },
+                totalQuantity: state.totalQuantity + quantity,
             };
         case REMOVE_FROM_CART:
             //console.log('REMOVE_FROM_CART FIRING');
             const { productIdToRemove } = action.payload;
 
-            // Check if the product is in the cart
-            if (state[productIdToRemove]) {
-                // Decrement the quantity
-                const updatedQuantity = state[productIdToRemove].quantity - 1;
+            // Check if the product exists in the cart
+            if (state.items[productIdToRemove]) {
+                const updatedQuantity =
+                    state.items[productIdToRemove].quantity - 1;
 
+                // Check if the updated quantity is greater than zero
                 if (updatedQuantity > 0) {
+                    // If yes, update the quantity of the product
                     return {
                         ...state,
-                        [productIdToRemove]: {
-                            ...state[productIdToRemove],
-                            quantity: updatedQuantity,
+                        items: {
+                            ...state.items,
+                            [productIdToRemove]: {
+                                ...state.items[productIdToRemove],
+                                quantity: updatedQuantity,
+                            },
                         },
+                        totalQuantity: state.totalQuantity - 1,
                     };
                 } else {
-                    // If the quantity reaches 0, remove the product from the cart
-                    const { [productIdToRemove]: _, ...remainingItems } = state;
-                    return remainingItems;
+                    // If quantity falls to zero, remove the product from the cart
+                    const { [productIdToRemove]: _, ...remainingItems } =
+                        state.items;
+                    return {
+                        ...state,
+                        items: remainingItems,
+                        totalQuantity: state.totalQuantity - 1,
+                    };
                 }
             }
-            return state; // If product not in cart, return current state
+
+            // If product is not in the cart, just return the current state
+            return state;
 
         default:
             return state;
