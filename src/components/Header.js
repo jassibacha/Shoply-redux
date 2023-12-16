@@ -19,17 +19,25 @@ const Header = () => {
                             Shop
                         </Link>
                     </li>
+                    <li className="nav-item">
+                        <Link className="nav-link" to="/cart">
+                            Cart
+                        </Link>
+                    </li>
                 </ul>
             </div>
 
             <ul className="navbar-nav ms-auto">
                 <li className="nav-item">
-                    <button className="btn nav-link d-flex align-items-center">
+                    <Link
+                        to="/cart"
+                        className="nav-link d-flex align-items-center"
+                    >
                         <FontAwesomeIcon icon={faShoppingCart} size="lg" />
                         <span className="badge bg-secondary ms-1">
                             {cart.totalQuantity}
                         </span>
-                    </button>
+                    </Link>
                 </li>
             </ul>
         </nav>
